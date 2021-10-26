@@ -15,13 +15,9 @@ public class exo3 {
         System.out.println(iere(new int[]{1,3,4,2,0}, 0, 2));
     }
     public static boolean estPermutation(int[] tab) {
-        boolean rep=true;
-        int ad=0;
-        for(int val : tab){
-            if (val<0)rep=false;
-            ad+=val;
-        }
-        if(ad!=(tab.length*(tab.length-1))/2)rep=false;
+        boolean rep=true;        
+        int[] tabTrie=trieFusion.trie_fusion(tab);
+        for (int i = 0 ; i<tab.length;i++)if(tabTrie[i]!=i)rep=false;
         return rep;
     }
     public static int[] compose(int[] tab, int[] tab2) {
